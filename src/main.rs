@@ -2,16 +2,9 @@ use std::io::{self,Write};
 
 //#[derive(Debug)]
 
-// Contantes para conversões envolvendo temperatura (colocar um cometário indicando onde essas constantes se encontram)
-const KELVIN_CONSTANT:f64 = 273.15;
+// Contantes para conversões envolvendo temperatura
 
-const SCALE_FACTOR:f64 = 1.8;
-
-const SET_POINT_C_TO_K:f64 = 32.0;
-
-const SET_POINT_F_TO_K:f64 = 459.67;
-
-const INVERSION_FACTOR:f64 = (5/9) as f64;
+mod constants;
 
 // Pegando a opção que o usuário pediu:
 
@@ -118,7 +111,7 @@ fn temperature_converter(){
             
             let kelvin: f64 = kelvin.trim().parse().unwrap();
 
-            let convert_to_celsius:f64 = kelvin - KELVIN_CONSTANT;
+            let convert_to_celsius:f64 = kelvin - constants::KELVIN_CONSTANT;
 
             println!("Convertendo fica assim:\n\
             {} Kelvin equivale a {} Celsius.\n\
@@ -138,7 +131,7 @@ fn temperature_converter(){
             
             let celsius:f64 = celsius.trim().parse().unwrap();
 
-            let convert_to_kelvin:f64 = celsius + KELVIN_CONSTANT;
+            let convert_to_kelvin:f64 = celsius + constants::KELVIN_CONSTANT;
 
             println!("Convertendo fica assim:\n\
             {} Celsius equivale a {} Kelvin.\n\
@@ -174,7 +167,7 @@ fn temperature_converter(){
 
             let fahrenheit:f64 = fahrenheit.trim().parse().unwrap();
 
-            let convert_to_celsius = (fahrenheit - SET_POINT_C_TO_K) * INVERSION_FACTOR;
+            let convert_to_celsius = (fahrenheit - constants::SET_POINT_C_TO_K) * constants::INVERSION_FACTOR;
 
             println!("Convertendo fica assim:\n\
             {} Fahrenheit equivale a {} Celsius.
@@ -193,7 +186,7 @@ fn temperature_converter(){
 
             let celsius:f64 = celsius.trim().parse().unwrap();
 
-            let convert_to_fahrenheit = SCALE_FACTOR * celsius + SET_POINT_C_TO_K;
+            let convert_to_fahrenheit = constants::SCALE_FACTOR * celsius + constants::SET_POINT_C_TO_K;
 
             println!("Convertendo fica assim:
             {} Celsius equivalem a {} Fahrenheit
@@ -230,7 +223,7 @@ fn temperature_converter(){
 
             let fahrenheit:f64 = fahrenheit.trim().parse().unwrap();
 
-            let convert_to_kelvin = (fahrenheit + SET_POINT_F_TO_K) * INVERSION_FACTOR;
+            let convert_to_kelvin = (fahrenheit + constants::SET_POINT_F_TO_K) * constants::INVERSION_FACTOR;
 
             println!("Convertendo fica assim:\n\
             {} Fahrenheit equivale a {} Kelvin.
@@ -249,7 +242,7 @@ fn temperature_converter(){
 
             let kelvin:f64 = kelvin.trim().parse().unwrap();
 
-            let convert_to_fahrenheit = (kelvin * SCALE_FACTOR) - SET_POINT_F_TO_K;
+            let convert_to_fahrenheit = (kelvin * constants::SCALE_FACTOR) - constants::SET_POINT_F_TO_K;
 
             println!("Convertendo fica assim:\n\
             {} Kelvin equivale a {} Fahrenheit.
