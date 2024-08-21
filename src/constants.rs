@@ -1,3 +1,4 @@
+// Contantes para conversões envolvendo temperatura
 pub const KELVIN_CONSTANT:f64 = 273.15;
 
 pub const SCALE_FACTOR:f64 = 1.8;
