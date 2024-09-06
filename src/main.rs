@@ -1,10 +1,10 @@
-// declarando contantes para as conversões
-mod constants;
+mod input_user; // Importando o módulo input_user
 
-// declarando módulo que tem input
-mod input_user;
-// reexportando o módulo a cima
-pub use input_user::input_user;
+mod constants; // Importando o módulo constants
+
+mod unit_converter; // Importando o módulo unit_converters
+
+mod utils; // Importando o módulo utils
 
 fn main() {
     println!("Olá, informe uma das seguintes opções de conversor de unidades:");
@@ -20,24 +20,12 @@ fn main() {
     9 - [Pressão]\n\
     ");
 
-    let option:u8 = input_user().trim().parse().unwrap();
+    let option:u8 = utils::input_user().trim().parse().unwrap();
 
-    // Função que verifica qual o conversor que o usuário quer
-
-    unit_converter(option);
-
-}
-
-// declarando módulo onde tem os conversores de unidades
-mod unit_converter;
-// reexportando esse módulo
-pub use unit_converter::temperature_converters::input_temperature_converter::temperature_converter;
-
-fn unit_converter(opt: u8)
-{
-    match opt
+    // Verificando qual a conversão que o usuário quer.
+    match option
     {
-        1 => {temperature_converter()},
+        1 => {utils::input_temperature_converter::temperature_converter()},
         /*2 => {length_converter()},
         3 => {mass_converter()},
         4 => {volume_converter()},

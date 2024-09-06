@@ -1,6 +1,4 @@
-use std::io::{self,Write};
-use crate::constants;
-use crate::input_user::input_user;
+use crate::utils::{self, io, Write};
 
 pub fn kelvin_fahrenheit()
 {
@@ -11,7 +9,7 @@ pub fn kelvin_fahrenheit()
     2 - [Kelvin para Fahrenheit]\n\
     ");
 
-    let option:u8 = input_user().trim().parse().unwrap();
+    let option:u8 = utils::input_user().trim().parse().unwrap();
 
     match option{
         1 => {fahrenheit_to_kelvin()},
@@ -23,9 +21,9 @@ pub fn kelvin_fahrenheit()
         print!("Informe a temperatura em Fahrenheit: ");
         io::stdout().flush().unwrap();
 
-        let fahrenheit:f64 = input_user().trim().parse().unwrap();
+        let fahrenheit:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_kelvin = (fahrenheit + constants::SET_POINT_F_TO_K) * constants::INVERSION_FACTOR;
+        let convert_to_kelvin = (fahrenheit + utils::SET_POINT_F_TO_K) * utils::INVERSION_FACTOR;
 
         println!("Convertendo fica assim:\n\
         {} Fahrenheit equivale a {} Kelvin.
@@ -36,9 +34,9 @@ pub fn kelvin_fahrenheit()
         print!("Informe a temperatura em Kelvin: ");
         io::stdout().flush().unwrap();
 
-        let kelvin:f64 = input_user().trim().parse().unwrap();
+        let kelvin:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_fahrenheit = (kelvin * constants::SCALE_FACTOR) - constants::SET_POINT_F_TO_K;
+        let convert_to_fahrenheit = (kelvin * utils::SCALE_FACTOR) - utils::SET_POINT_F_TO_K;
 
         println!("Convertendo fica assim:\n\
         {} Kelvin equivale a {} Fahrenheit.

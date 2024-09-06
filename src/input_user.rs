@@ -1,4 +1,4 @@
-use std::io;
+use crate::utils::io;
 
 pub fn input_user() -> String
 {

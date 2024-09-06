@@ -1,6 +1,4 @@
-use std::io::{self,Write};
-use crate::constants;
-use crate::input_user::input_user;
+use crate::utils::{self, io, Write};
 
 pub fn kelvin_celsius(){
     println!("Pronto! Agora que você está aqui...\n\
@@ -10,7 +8,7 @@ pub fn kelvin_celsius(){
     2 - [Celsius para Kelvin]\n\
     ");
 
-    let option:u8 = input_user().trim().parse().unwrap();
+    let option:u8 = utils::input_user().trim().parse().unwrap();
 
     match option{
         1 => {kelvin_to_celsius()},
@@ -23,9 +21,9 @@ pub fn kelvin_celsius(){
         print!("Informe a temperatura em Kelvin: ");
         io::stdout().flush().unwrap();
 
-        let kelvin: f64 = input_user().trim().parse().unwrap();
+        let kelvin: f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_celsius:f64 = kelvin - constants::KELVIN_CONSTANT;
+        let convert_to_celsius:f64 = kelvin - utils::KELVIN_CONSTANT;
 
         println!("Convertendo fica assim:\n\
         {} Kelvin equivale a {} Celsius.\n\
@@ -37,9 +35,9 @@ pub fn kelvin_celsius(){
         print!("Informe a temperatura em Celsius: ");
         io::stdout().flush().unwrap();
         
-        let celsius:f64 = input_user().trim().parse().unwrap();
+        let celsius:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_kelvin:f64 = celsius + constants::KELVIN_CONSTANT;
+        let convert_to_kelvin:f64 = celsius + utils::KELVIN_CONSTANT;
 
         println!("Convertendo fica assim:\n\
         {} Celsius equivale a {} Kelvin.\n\

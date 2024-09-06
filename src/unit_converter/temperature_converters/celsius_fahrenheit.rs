@@ -1,6 +1,4 @@
-use std::io::{self,Write};
-use crate::constants;
-use crate::input_user::input_user;
+use crate::utils::{self, io, Write};
 
 pub fn celsius_fahrenheit(){
     println!("Pronto! Agora que você está aqui...\n\
@@ -10,7 +8,7 @@ pub fn celsius_fahrenheit(){
     2 - [Celsius para Fahrenheit]\n\
     ");
     
-    let option:u8 = input_user().trim().parse().unwrap();
+    let option:u8 = utils::input_user().trim().parse().unwrap();
 
     match option{
         1 => {fahrenheit_to_celsius()},
@@ -22,9 +20,9 @@ pub fn celsius_fahrenheit(){
         print!("Informe a temperatura em Fahrenheit: ");
         io::stdout().flush().unwrap();
 
-        let fahrenheit:f64 = input_user().trim().parse().unwrap();
+        let fahrenheit:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_celsius = (fahrenheit - constants::SET_POINT_C_TO_K) * constants::INVERSION_FACTOR;
+        let convert_to_celsius = (fahrenheit - utils::SET_POINT_C_TO_K) * utils::INVERSION_FACTOR;
 
         println!("Convertendo fica assim:\n\
         {} Fahrenheit equivale a {} Celsius.
@@ -35,9 +33,9 @@ pub fn celsius_fahrenheit(){
         print!("Informe a temperatura em Celsius: ");
         io::stdout().flush().unwrap();
 
-        let celsius:f64 = input_user().trim().parse().unwrap();
+        let celsius:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_fahrenheit = constants::SCALE_FACTOR * celsius + constants::SET_POINT_C_TO_K;
+        let convert_to_fahrenheit = utils::SCALE_FACTOR * celsius + utils::SET_POINT_C_TO_K;
 
         println!("Convertendo fica assim:
         {} Celsius equivalem a {} Fahrenheit
