@@ -1,12 +1,12 @@
 use std::io;
 
-pub fn input_option_user() -> String
+pub fn input_user() -> String
 {
-    let mut option = String::new();
+    let mut input_value = String::new();
 
     io::stdin()
-               .read_line(&mut option)
-               .expect("Erro ao ler a variável option!");
+               .read_line(&mut input_value)
+               .expect("Erro ao ler a variável input_value!");
     
-    option
+    input_value
 }
