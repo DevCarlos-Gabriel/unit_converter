@@ -1,6 +1,6 @@
 mod input_user; // Importando o módulo input_user
 
-mod constants; // Importando o módulo constants
+pub mod constants; // Importando o módulo constants
 
 mod unit_converter; // Importando o módulo unit_converters
 

@@ -1,4 +1,4 @@
-use crate::utils::{self, io, Write};
+use crate::utils::{self, constants::*,io, Write};
 
 pub fn kelvin_celsius(){
     println!("Pronto! Agora que você está aqui...\n\
@@ -23,7 +23,7 @@ pub fn kelvin_celsius(){
 
         let kelvin: f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_celsius:f64 = kelvin - utils::KELVIN_CONSTANT;
+        let convert_to_celsius:f64 = kelvin - temperature_constants::KELVIN_CONSTANT;
 
         println!("Convertendo fica assim:\n\
         {} Kelvin equivale a {} Celsius.\n\
@@ -37,7 +37,7 @@ pub fn kelvin_celsius(){
         
         let celsius:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_kelvin:f64 = celsius + utils::KELVIN_CONSTANT;
+        let convert_to_kelvin:f64 = celsius + temperature_constants::KELVIN_CONSTANT;
 
         println!("Convertendo fica assim:\n\
         {} Celsius equivale a {} Kelvin.\n\

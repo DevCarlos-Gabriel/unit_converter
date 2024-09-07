@@ -1,4 +1,4 @@
-use crate::utils::{self, io, Write};
+use crate::utils::{self, constants::*, io, Write};
 
 pub fn celsius_fahrenheit(){
     println!("Pronto! Agora que você está aqui...\n\
@@ -22,7 +22,7 @@ pub fn celsius_fahrenheit(){
 
         let fahrenheit:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_celsius = (fahrenheit - utils::SET_POINT_C_TO_K) * utils::INVERSION_FACTOR;
+        let convert_to_celsius = (fahrenheit - temperature_constants::SET_POINT_C_TO_K) * temperature_constants::INVERSION_FACTOR;
 
         println!("Convertendo fica assim:\n\
         {} Fahrenheit equivale a {} Celsius.
@@ -35,7 +35,7 @@ pub fn celsius_fahrenheit(){
 
         let celsius:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_fahrenheit = utils::SCALE_FACTOR * celsius + utils::SET_POINT_C_TO_K;
+        let convert_to_fahrenheit = temperature_constants::SCALE_FACTOR * celsius + temperature_constants::SET_POINT_C_TO_K;
 
         println!("Convertendo fica assim:
         {} Celsius equivalem a {} Fahrenheit

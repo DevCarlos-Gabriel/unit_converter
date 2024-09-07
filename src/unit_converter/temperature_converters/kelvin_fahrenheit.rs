@@ -1,4 +1,4 @@
-use crate::utils::{self, io, Write};
+use crate::utils::{self, constants::*, io, Write};
 
 pub fn kelvin_fahrenheit()
 {
@@ -23,7 +23,7 @@ pub fn kelvin_fahrenheit()
 
         let fahrenheit:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_kelvin = (fahrenheit + utils::SET_POINT_F_TO_K) * utils::INVERSION_FACTOR;
+        let convert_to_kelvin = (fahrenheit + temperature_constants::SET_POINT_F_TO_K) * temperature_constants::INVERSION_FACTOR;
 
         println!("Convertendo fica assim:\n\
         {} Fahrenheit equivale a {} Kelvin.
@@ -36,7 +36,7 @@ pub fn kelvin_fahrenheit()
 
         let kelvin:f64 = utils::input_user().trim().parse().unwrap();
 
-        let convert_to_fahrenheit = (kelvin * utils::SCALE_FACTOR) - utils::SET_POINT_F_TO_K;
+        let convert_to_fahrenheit = (kelvin * temperature_constants::SCALE_FACTOR) - temperature_constants::SET_POINT_F_TO_K;
 
         println!("Convertendo fica assim:\n\
         {} Kelvin equivale a {} Fahrenheit.
