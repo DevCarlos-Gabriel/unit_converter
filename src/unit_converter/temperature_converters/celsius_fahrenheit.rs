@@ -1,4 +1,4 @@
-use crate::utils::{self, constants::*, io, Write};
+use crate::utils::{self, constants::temperature_constants, io, Write};
 
 pub fn celsius_fahrenheit(){
     println!("Pronto! Agora que você está aqui...\n\
